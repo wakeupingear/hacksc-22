@@ -3,6 +3,7 @@
 
 <head>
     <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <title>Our Funky HTML Page</title>
     <meta name="description" content="Our first page">
     <meta name="keywords" content="html tutorial template">
@@ -10,11 +11,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    Content goes here.
+    <div id="page">
+        <h1 id="title">Wordus</h1>
+        <iframe src="./htmlFiles/index.html" id="game"></iframe>
+    </div>
+    <div id="footer">
+        <div id="date">
+            Made by <a>Levi Pinkert</a> and <a href="https://willfarhat.com">Will Farhat</a> - 
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>
