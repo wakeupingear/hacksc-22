@@ -2,9 +2,9 @@
 randomize();
 //Constants
 tileSize = 128;
-gameSize = 4;
-xOffset = 128;
-yOffset = 256;
+gameSize = 3;
+xOffset = 128+64;
+yOffset = 256+64;
 
 
 //Variables

@@ -22,7 +22,7 @@ if(swipeState == 2){
 							gameToScreenY(selectionYs[| i])+64,
 							10);
 		}
-		draw_circle(gameToScreenX(selectionXs[| i])+64,gameToScreenY(selectionYs[| i])+64, 16, false);
+		draw_circle(gameToScreenX(selectionXs[| i])+tileSize/2,gameToScreenY(selectionYs[| i])+tileSize/2, 16, false);
 	}
 	draw_set_color(c_white);
 }
