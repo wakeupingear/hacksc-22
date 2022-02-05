@@ -1,5 +1,5 @@
 ///Create
-
+randomize();
 //Constants
 tileSize = 128;
 gameSize = 4;

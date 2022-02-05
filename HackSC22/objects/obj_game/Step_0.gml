@@ -83,8 +83,8 @@ if(swipeState == 1){
 
 //Selection
 if(swipeState == 0 && mouse_check_button_pressed(mb_right)){
-	swipeOriginX = screenToGameX(mouse_x);
-	swipeOriginY = screenToGameY(mouse_y);
+	swipeOriginX = screenToGameX(window_mouse_get_x());
+	swipeOriginY = screenToGameY(window_mouse_get_y());
 	if(swipeOriginX >= 0 && swipeOriginX < gameSize && swipeOriginY >= 0 && swipeOriginY < gameSize && board[swipeOriginX][swipeOriginY] != pointer_null){
 		ds_list_clear(selectionXs);
 		ds_list_clear(selectionYs);
