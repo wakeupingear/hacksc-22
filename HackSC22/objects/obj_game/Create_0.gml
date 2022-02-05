@@ -1,10 +1,19 @@
 ///Create
+
+//Randomize
 randomize();
+
+//Scaling stuff
+base_width = room_width;
+base_height = room_height;
+width = base_width;
+height = base_height;
+
 //Constants
 tileSize = 128;
 gameSize = 3;
 xOffset = 128+64;
-yOffset = 256+64;
+yOffset = 128+64;
 
 
 //Variables

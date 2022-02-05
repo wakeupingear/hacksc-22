@@ -5,6 +5,7 @@
     {"id":{"name":"gameToScreen","path":"scripts/gameToScreen/gameToScreen.yy",},"order":0,},
     {"id":{"name":"fnt_tile","path":"fonts/fnt_tile/fnt_tile.yy",},"order":0,},
     {"id":{"name":"spr_altTile","path":"sprites/spr_altTile/spr_altTile.yy",},"order":2,},
+    {"id":{"name":"scale_canvas","path":"scripts/scale_canvas/scale_canvas.yy",},"order":1,},
     {"id":{"name":"spr_tile","path":"sprites/spr_tile/spr_tile.yy",},"order":0,},
     {"id":{"name":"spr_altSquare","path":"sprites/spr_altSquare/spr_altSquare.yy",},"order":3,},
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},"order":1,},

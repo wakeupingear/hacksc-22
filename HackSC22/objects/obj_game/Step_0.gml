@@ -1,9 +1,17 @@
 ///Step
 
+//Resize
+if (browser_width != width || browser_height != height){
+	width = min(base_width, browser_width);
+	height = min(base_height, browser_height);
+	scale_canvas(base_width, base_height, width, height, true);
+}
+
+
 //Movement
 if(swipeState == 0 && mouse_check_button_pressed(mb_left)){
-	swipeOriginX = screenToGameX(window_mouse_get_x());
-	swipeOriginY = screenToGameY(window_mouse_get_y());
+	swipeOriginX = screenToGameX(mouse_x);
+	swipeOriginY = screenToGameY(mouse_y);
 	if(swipeOriginX >= 0 && swipeOriginX < gameSize && swipeOriginY >= 0 && swipeOriginY < gameSize){
 		swipeState = 1;
 	}
@@ -13,8 +21,8 @@ if(swipeState == 1){
 	if(!mouse_check_button(mb_left)){
 		swipeState = 0;
 	}
-	var swipeX = screenToGameX(window_mouse_get_x());
-	var swipeY = screenToGameY(window_mouse_get_y());
+	var swipeX = screenToGameX(mouse_x);
+	var swipeY = screenToGameY(mouse_y);
 	var swipeDir = -2;
 	if(swipeX == swipeOriginX+1 && swipeY == swipeOriginY){
 		swipeDir = 0;
@@ -83,8 +91,8 @@ if(swipeState == 1){
 
 //Selection
 if(swipeState == 0 && mouse_check_button_pressed(mb_right)){
-	swipeOriginX = screenToGameX(window_mouse_get_x());
-	swipeOriginY = screenToGameY(window_mouse_get_y());
+	swipeOriginX = screenToGameX(mouse_x);
+	swipeOriginY = screenToGameY(mouse_y);
 	if(swipeOriginX >= 0 && swipeOriginX < gameSize && swipeOriginY >= 0 && swipeOriginY < gameSize && board[swipeOriginX][swipeOriginY] != pointer_null){
 		ds_list_clear(selectionXs);
 		ds_list_clear(selectionYs);
@@ -97,8 +105,8 @@ if(swipeState == 0 && mouse_check_button_pressed(mb_right)){
 if(swipeState == 2){
 	if(mouse_check_button(mb_right)){
 		//Get where we selected
-		var selX = screenToGameX(window_mouse_get_x());
-		var selY = screenToGameY(window_mouse_get_y());
+		var selX = screenToGameX(mouse_x);
+		var selY = screenToGameY(mouse_y);
 		var lastSelX = selectionXs[| ds_list_size(selectionXs)-1];
 		var lastSelY = selectionYs[| ds_list_size(selectionYs)-1];
 		
