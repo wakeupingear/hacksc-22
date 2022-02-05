@@ -12,12 +12,14 @@ height = base_height;
 //Constants
 tileSize = 128;
 gameSize = 3;
-xOffset = 128+64;
-yOffset = 128+64;
+xOffset = 0;
+yOffset = 128;
 
 
 //Variables
 swipeState = 0;
+holdLength = 0;
+
 swipeOriginX = -1;
 swipeOriginY = -1;
 
@@ -25,11 +27,15 @@ selectionXs = ds_list_create();
 selectionYs = ds_list_create();
 
 points = 0;
+wordDisplayState = 0;
+wordDisplayTimer = 0;
+displayWord = "";
 
 //Initialize the board to nulls
 for(var xx = 0; xx < gameSize; xx++){
 	for(var yy = 0; yy < gameSize; yy++){
 		board[xx][yy] = pointer_null;
+		selectionDots[xx][yy] = 0;
 	}
 }
 
@@ -38,6 +44,22 @@ boardHasSpace = function(){
 	for(var xx = 0; xx < gameSize; xx++){
 		for(var yy = 0; yy < gameSize; yy++){
 			if(board[xx][yy] == pointer_null){
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+//Function that tells whether there is a vowel on the board
+boardHasVowel = function(){
+	for(var xx = 0; xx < gameSize; xx++){
+		for(var yy = 0; yy < gameSize; yy++){
+			if(board[xx][yy] != pointer_null && (board[xx][yy].letter == "a" ||
+												board[xx][yy].letter == "e" ||
+												board[xx][yy].letter == "i" ||
+												board[xx][yy].letter == "o" ||
+												board[xx][yy].letter == "u")){
 				return true;
 			}
 		}
@@ -78,6 +100,15 @@ letterProbs = [8.4966, 2.0720, 4.5388, 3.3844, 11.1607, 1.8121, 2.4705, 3.0034, 
 letterProbSum = 0;
 for(var i = 0; i < array_length(letterProbs); i++){ letterProbSum += letterProbs[i]; }
 getRandomLetter = function(){
+	if(!boardHasVowel()){
+		switch(irandom_range(0, 4)){
+		case(0): return "a";
+		case(1): return "e";
+		case(2): return "i";
+		case(3): return "o";
+		case(4): return "u";
+		}
+	}
 	var rand = random(letterProbSum);
 	var sum = 0;
 	for(var i = 0; i < 26; i++){
