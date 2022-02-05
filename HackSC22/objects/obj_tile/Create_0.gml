@@ -2,7 +2,7 @@
 
 gameX = -1;
 gameY = -1;
-letter = "a";
+letter = obj_game.getRandomLetter();
 
 
 moveTo = function(nX, nY){
@@ -10,4 +10,8 @@ moveTo = function(nX, nY){
 	gameY = nY;
 	x = gameToScreenX(gameX);
 	y = gameToScreenY(gameY);
+}
+
+die = function(){
+	instance_destroy();
 }

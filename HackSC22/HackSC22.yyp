@@ -1,8 +1,9 @@
 {
   "resources": [
     {"id":{"name":"obj_tile","path":"objects/obj_tile/obj_tile.yy",},"order":0,},
-    {"id":{"name":"gameToBoard","path":"scripts/gameToBoard/gameToBoard.yy",},"order":0,},
-    {"id":{"name":"fnt_poppinsMed","path":"fonts/fnt_poppinsMed/fnt_poppinsMed.yy",},"order":0,},
+    {"id":{"name":"fnt_bigText","path":"fonts/fnt_bigText/fnt_bigText.yy",},"order":1,},
+    {"id":{"name":"gameToScreen","path":"scripts/gameToScreen/gameToScreen.yy",},"order":0,},
+    {"id":{"name":"fnt_tile","path":"fonts/fnt_tile/fnt_tile.yy",},"order":0,},
     {"id":{"name":"spr_tile","path":"sprites/spr_tile/spr_tile.yy",},"order":0,},
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},"order":1,},
     {"id":{"name":"spr_tileSquare","path":"sprites/spr_tileSquare/spr_tileSquare.yy",},"order":1,},
@@ -52,7 +53,9 @@
   "TextureGroups": [
     {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
   ],
-  "IncludedFiles": [],
+  "IncludedFiles": [
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"dictionary.csv","resourceType":"GMIncludedFile",},
+  ],
   "MetaData": {
     "IDEVersion": "2.3.7.606",
   },

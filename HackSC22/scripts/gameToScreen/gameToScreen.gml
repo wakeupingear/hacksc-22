@@ -15,3 +15,19 @@ function gameToScreenX(x_){
 function gameToScreenY(y_){
 	return y_*obj_game.tileSize + obj_game.yOffset;
 }
+
+function dirX(dir_){
+	switch(dir_%4){
+	case(0): return 1;
+	case(2): return -1;
+	default: return 0;
+	}
+}
+
+function dirY(dir_){
+	switch(dir_%4){
+	case(1): return -1;
+	case(3): return 1;
+	default: return 0;
+	}
+}
