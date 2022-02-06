@@ -27,6 +27,9 @@ selectionXs = ds_list_create();
 selectionYs = ds_list_create();
 
 points = 0;
+strikes = 0;
+lost = false;
+
 wordDisplayState = 0;
 wordDisplayTimer = 0;
 displayWord = "";
@@ -130,6 +133,54 @@ for (var i=0;i<ds_grid_height(wordGrid);i++){
 //Function that tells whether a word is valid
 validWord = function(word_){
 	return ds_map_find_value(wordMap, word_) != undefined;
+}
+
+//BFS
+validWordAt = function(atX, atY, str){
+	if(atX < 0 || atX >= gameSize || atY < 0 || atY >= gameSize || checked[atX][atY]){
+		return false;
+	}
+	str += board[atX][atY].letter;
+	if(string_length(str) > 2 && validWord(str)){
+		show_debug_message(str);
+		return true;
+	}
+	checked[atX][atY] = true;
+	for(var d = 0; d < 4; d++){
+		if(validWordAt(atX + dirX(d), atY +  dirY(d), str)){
+			return true;
+		}
+	}
+	checked[atX][atY] = false;
+	return false;
+}
+
+//BFS to tell whether the board has moves
+gameOver = function(){
+	//check the board has no empty spaces
+	for(var xx = 0; xx < gameSize; xx++){
+		for(var yy = 0; yy < gameSize; yy++){
+			if(board[xx][yy] == pointer_null){
+				return false;
+			}
+		}
+	}
+	
+	//for each potential starting position...
+	for(var xx = 0; xx < gameSize; xx++){
+		for(var yy = 0; yy < gameSize; yy++){
+			//reset the shit
+			for(var i = 0; i < gameSize; i++){
+				for(var j = 0; j < gameSize; j++){
+					checked[i][j] = false;
+				}
+			}
+			if(validWordAt(xx, yy, "")){
+				return false;
+			}
+		}
+	}
+	return true;
 }
 
 //Initialize the board with 3 random tiles

@@ -1,16 +1,5 @@
 ///Draw
 
-//Draw score
-var pointsStr = string(points);
-while(string_length(pointsStr) < 4){
-	pointsStr = "0" + pointsStr;
-}
-draw_set_halign(fa_center);
-draw_set_valign(fa_center);
-draw_set_color(c_ltgray);
-draw_set_font(fnt_bigText);
-draw_text(room_width/2, 64, pointsStr);
-
 //make dots smaller
 for(var xx = 0; xx < gameSize; xx++){
 	for(var yy = 0; yy < gameSize; yy++){
@@ -73,7 +62,20 @@ if(drawWord){
 	draw_set_color(wordColor);
 	draw_set_font(fnt_bigText);
 	draw_set_alpha(wordAlpha);
-	draw_text(room_width/2 + wordXOffset, room_height-64 + wordYOffset, displayWord);
+	draw_text(room_width/2 + wordXOffset, 64 + wordYOffset, displayWord);
 	draw_set_color(c_white);
 	draw_set_alpha(1);
+}else{
+	var pointsStr = string(points);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_center);
+	draw_set_color(c_ltgray);
+	draw_set_font(fnt_bigText);
+	draw_text(room_width/2, 64, pointsStr);
+}
+
+
+//Draw strikes
+for(var i = 0; i < 3; i++){
+	draw_sprite(spr_strike, strikes > i, room_width/2 + 96*(i-1), room_height-64);
 }

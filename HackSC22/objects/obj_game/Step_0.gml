@@ -168,6 +168,10 @@ if(swipeState == 2){
 		}else{
 			//invalid word
 			wordDisplayState = 3;
+			strikes++;
+			if(strikes == 3){
+				lost = true;
+			}
 		}
 		wordDisplayTimer = 0;
 		swipeState = 0;
