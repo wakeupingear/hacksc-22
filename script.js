@@ -60,9 +60,14 @@ if (token === null) {
     alert(token)
     localStorage.setItem("token", token);
 }
-/*
-const socket = io("ws://localhost:5509");
-socket.on("score", score => {
-    highScore = score;
-});
-*/
+
+window.onstorage = () => {
+    // When local storage changes, dump the list to
+    // the console.
+    let newScore=parseInt(window.localStorage.getItem('CreatedwithGameMakerStudio2.0.score.ini').replace(/\D/g, ""));
+    if (newScore!==highScore){
+        highScore=newScore;
+        console.log("NEW SCORE: "+highScore);
+        localStorage.setItem("highScore",highScore);
+    }
+  };
