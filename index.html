@@ -3,6 +3,8 @@
 
 <head>
     <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" integrity="sha512-UNM1njAgOFUa74Z0bADwAq8gbTcqZC8Ej4xPSzpnh0l6KMevwvkBvbldF9uR++qKeJ+MOZHRjV1HZjoRvjDfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Our Funky HTML Page</title>
     <meta name="description" content="Our first page">
     <meta name="keywords" content="html tutorial template">
@@ -10,11 +12,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    Content goes here.
+    <div id="page">
+        <h1 id="title">Wordus</h1>
+        <div id="content">
+            <iframe src="./htmlFiles/index.html" id="game"></iframe>
+            <div id="scoreTab" class="shadow">
+                <div id="scoreToggle" class="hover"></div>
+                <div id="scoreContent" class="open">
+                    <h2>High Scores</h2>
+                    <div id="scoreModes">
+                        <div class="scoreCategory">You</div>
+                        <div class="scoreCategory">Global</div>
+                    </div>
+                    <div id="scoreData">
+                        <div id="scoreYou">
+                            blah
+                        </div>
+                        <div id="scoreGlobal">
+                            blahblah
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="shadow">
+        <div id="date">
+            Made by <a>Levi Pinkert</a> and <a href="https://willfarhat.com">Will Farhat</a> - 
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>
