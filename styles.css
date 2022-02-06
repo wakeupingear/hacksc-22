@@ -154,6 +154,14 @@ a:hover {
     overflow: hidden;
 }
 
+#score{
+    color: var(--c_mid);
+    font-size: min(3vw, 3vh);
+    display: flex;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
 #popup {
     display: flex;
     position: absolute;

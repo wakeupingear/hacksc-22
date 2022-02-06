@@ -80,6 +80,15 @@ if (token === null) {
     localStorage.setItem("token", token);
 }
 
+const score = document.getElementById("score");
+const scoreHolder = document.getElementById("scoreHolder");
+setScore = (newScore) => {
+    scoreHolder.innerHTML = "&nbsp;"+newScore;
+    score.style.opacity=1;
+}
+if (highScore!=0) setScore(highScore);
+else score.style.opacity=0;
+
 window.onstorage = () => {
     // When local storage changes, dump the list to
     // the console.
@@ -88,5 +97,6 @@ window.onstorage = () => {
         highScore = newScore;
         console.log("NEW SCORE: " + highScore);
         localStorage.setItem("highScore", highScore);
+        setScore(highScore);
     }
 };
