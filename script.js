@@ -46,6 +46,25 @@ for (var i = 0; i < scoreModes.children.length; i++) {
 }
 eventFire(scoreModes.children[0], "click");
 
+const popup = document.getElementById("popup");
+document.getElementById("popupToggle").addEventListener("click", () => {
+    if (popup.getAttribute("class") === "") {
+        popup.setAttribute("class", "popupOpen");
+        popup.style.animationName = "fadeIn";
+    }
+    else {
+        popup.setAttribute("class", "");
+        popup.style.animationName = "fadeOut";
+    }
+});
+
+const popupEntries = document.getElementById("popupContent");
+for (var i = 0; i < popupEntries.children.length - 1; i++) {
+    //popupEntries.children[i].children[0].setAttribute("class","shadow")
+    popupEntries.children[i].innerHTML += `
+    <div class="popupSpacer"></div>`;
+}
+
 function uuidv4() {
     return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
@@ -63,10 +82,10 @@ if (token === null) {
 window.onstorage = () => {
     // When local storage changes, dump the list to
     // the console.
-    let newScore=parseInt(window.localStorage.getItem('CreatedwithGameMakerStudio2.0.score.ini').replace(/\D/g, ""));
-    if (newScore!==highScore){
-        highScore=newScore;
-        console.log("NEW SCORE: "+highScore);
-        localStorage.setItem("highScore",highScore);
+    let newScore = parseInt(window.localStorage.getItem('CreatedwithGameMakerStudio2.0.score.ini').replace(/\D/g, ""));
+    if (newScore !== highScore) {
+        highScore = newScore;
+        console.log("NEW SCORE: " + highScore);
+        localStorage.setItem("highScore", highScore);
     }
-  };
+};

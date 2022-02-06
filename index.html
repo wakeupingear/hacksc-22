@@ -4,17 +4,23 @@
 <head>
     <script type="text/javascript">
         document.write("<base href='" + document.location.href + "/' />");
-        if (document.location.href=="http://localhost:5500/"){
-            document.write("<script type='text/javascript' src='https://livejs.com/live.js'>\</script\>");
+        if (document.location.href == "http://localhost:5500/") {
+            document.write("<script type='text/javascript' src='https://livejs.com/live.js'></sc" + "ript>");
         }
     </script>
-    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" integrity="sha512-UNM1njAgOFUa74Z0bADwAq8gbTcqZC8Ej4xPSzpnh0l6KMevwvkBvbldF9uR++qKeJ+MOZHRjV1HZjoRvjDfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"
+        integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"
+        integrity="sha512-UNM1njAgOFUa74Z0bADwAq8gbTcqZC8Ej4xPSzpnh0l6KMevwvkBvbldF9uR++qKeJ+MOZHRjV1HZjoRvjDfNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Writus</title>
     <meta name="description" content="Our first page">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <meta name="keywords" content="html tutorial template">
     <meta name="author" content="Levi Pinkert & Will Farhat">
     <meta charset="utf-8">
+    <meta property="og:image"  content="squareLogo2.PNG">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,12 +30,12 @@
 
 <body>
     <div id="page">
-        <h1 id="title">Writus</h1>
+        <img id="title" src="WritusLogo.png" />
         <div id="content">
-            <iframe src="htmlFiles/index.html" id="game"></iframe>
+            <iframe src="htmlFiles/index.html" id="game" class="noselect"></iframe>
             <div id="scoreTab" class="shadow">
                 <div id="scoreToggle" class="hover"></div>
-                <div id="scoreContent" class="open">
+                <div id="scoreContent" class="">
                     <h2>High Scores</h2>
                     <div id="scoreModes">
                         <div class="scoreCategory">You</div>
@@ -49,8 +55,42 @@
     </div>
     <div id="footer" class="shadow">
         <div id="date">
-            Made by <a>Levi Pinkert</a> and <a href="https://willfarhat.com">Will Farhat</a> - 
+            Made by <a href="https://levipinkert.wixsite.com/portfolio">Levi Pinkert</a> and <a href="https://willfarhat.com">Will Farhat</a> -
         </div>
+    </div>
+    <div id="popup" class="">
+        <div id="popupContent" class="noselect">
+            <div>
+                <img src="tutorials/newMoveTutorial.gif">
+                <div class="popupText">Click and swipe to move tiles in any direction </div>
+            </div>
+            <div>
+                <img src="tutorials/newSelectTutorial.gif">
+                <div class="popupText">Hold to start selecting, drag to select a word, then release</div>
+            </div>
+            <div>
+                <img src="tutorials/wordTutorial.gif">
+                <div class="popupText">If you guess a made-up word, you get a strike </div>
+            </div>
+            <div>
+                <img src="tutorials/strikeTutorial.gif">
+                <div class="popupText">Three strikes and you lose </div>
+            </div>
+            <div id="advancedRules">
+                <h2>Advanced Rules</h2>
+                <ul>
+                    <li>Words with one or two letters are not allowed</li>
+                    <li> Each time you move a tile or select a word, a new tile will be placed</li>
+                    <li> Finding a word with 4+ letters will remove a strike</li>
+                    <li> Tiles can push each other around</li>
+                    <li> Longer words count for more points</li>
+                    <li>If you have a mouse, you can use right click to quickly select</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="popupToggle" class="noselect shadow hover">
+        <img src="tutorialIconNoring.png">
     </div>
     <script src="script.js"></script>
 </body>
