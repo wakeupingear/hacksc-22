@@ -179,6 +179,7 @@ if(swipeState == 2){
 			//invalid word
 			wordDisplayState = 3;
 			strikes++;
+			audio_play_sound(snd_fail, 0, false);
 			if(strikes == 3){
 				lost = true;
 			}
@@ -192,7 +193,7 @@ wordDisplayTimer++;
 
 if(lost){
 	lostFade = clamp(lostFade + 1/60, 0, 1);
-	if(lostFade > .75 && mouse_check_button_pressed(mb_left)){
+	if(lostFade >= .75 && mouse_check_button_pressed(mb_left)){
 		room_restart();
 	}
 }

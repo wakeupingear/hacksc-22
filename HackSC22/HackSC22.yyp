@@ -2,10 +2,12 @@
   "resources": [
     {"id":{"name":"obj_tile","path":"objects/obj_tile/obj_tile.yy",},"order":0,},
     {"id":{"name":"snd_move","path":"sounds/snd_move/snd_move.yy",},"order":0,},
+    {"id":{"name":"snd_fail","path":"sounds/snd_fail/snd_fail.yy",},"order":3,},
     {"id":{"name":"fnt_bigText","path":"fonts/fnt_bigText/fnt_bigText.yy",},"order":1,},
     {"id":{"name":"gameToScreen","path":"scripts/gameToScreen/gameToScreen.yy",},"order":0,},
     {"id":{"name":"fnt_tile","path":"fonts/fnt_tile/fnt_tile.yy",},"order":0,},
     {"id":{"name":"spr_altTile","path":"sprites/spr_altTile/spr_altTile.yy",},"order":2,},
+    {"id":{"name":"obj_actionLine","path":"objects/obj_actionLine/obj_actionLine.yy",},"order":2,},
     {"id":{"name":"snd_success","path":"sounds/snd_success/snd_success.yy",},"order":2,},
     {"id":{"name":"scale_canvas","path":"scripts/scale_canvas/scale_canvas.yy",},"order":1,},
     {"id":{"name":"spr_tile","path":"sprites/spr_tile/spr_tile.yy",},"order":0,},

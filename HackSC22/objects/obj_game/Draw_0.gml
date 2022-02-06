@@ -41,8 +41,9 @@ for(var i = 0; i < 3; i++){
 //Lost screen
 if(lost){
 	draw_set_color(make_color_rgb(52,52,52));
-	draw_set_alpha(lostFade);
+	draw_set_alpha(lostFade*.75);
 	draw_rectangle(0, 0, room_width, room_height, false);
+	draw_set_alpha(lostFade);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_center);
 	draw_set_color(c_ltgray);
@@ -64,11 +65,11 @@ if(swipeState == 2){
 }else if(wordDisplayState == 1 && wordDisplayTimer < 30){
 	drawWord = true;
 	wordColor = c_green;
-	wordAlpha = 1-clamp(wordDisplayTimer/30, 0, 1);
+	//wordAlpha = 1-clamp(wordDisplayTimer/30, 0, 1);
 	wordYOffset = -wordDisplayTimer;
 }else if(wordDisplayState == 2 && wordDisplayTimer < 30){
 	drawWord = true;
-	wordAlpha = 1-clamp(wordDisplayTimer/30, 0, 1);
+	//wordAlpha = 1-clamp(wordDisplayTimer/30, 0, 1);
 	wordColor = c_yellow;
 }else if(wordDisplayState == 3 && wordDisplayTimer < 30){
 	drawWord = true;
