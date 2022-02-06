@@ -8,7 +8,7 @@ for(var xx = 0; xx < gameSize; xx++){
 }
 
 //Make selected dots larger and draw lines
-draw_set_color(make_color_rgb(68,140,203));
+draw_set_color(selColor);
 if(swipeState == 2){
 	for(var i = 0; i < ds_list_size(selectionXs); i++){
 		if(i > 0){
@@ -26,7 +26,7 @@ if(swipeState == 2){
 for(var xx = 0; xx < gameSize; xx++){
 	for(var yy = 0; yy < gameSize; yy++){
 		if(selectionDots[xx][yy] > 0.05){
-			draw_circle(gameToScreenX(xx)+tileSize/2,gameToScreenY(yy)+tileSize/2, 16*selectionDots[xx][yy], false);
+			draw_sprite_ext(spr_dot,0,gameToScreenX(xx)+tileSize/2,gameToScreenY(yy)+tileSize/2, selectionDots[xx][yy], selectionDots[xx][yy], 0, selColor, 1);
 		}
 	}
 }

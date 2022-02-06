@@ -1,4 +1,14 @@
 ///Create
+/*
+Sounds
+-move
+-make a word / tiles disappear (pop)
+-error
+-select
+
+
+
+*/
 
 //Randomize
 randomize();
@@ -25,6 +35,7 @@ swipeOriginY = -1;
 
 selectionXs = ds_list_create();
 selectionYs = ds_list_create();
+selColor = make_color_rgb(68,140,203);
 
 points = 0;
 strikes = 0;

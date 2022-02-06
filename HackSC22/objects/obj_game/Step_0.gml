@@ -83,6 +83,9 @@ if(swipeState == 1){
 				
 					//Create a new tile
 					createRandomTile();
+					
+					//Play the moving sound
+					audio_play_sound(snd_move, 0, false);
 				}
 			}
 		
@@ -102,6 +105,7 @@ if((swipeState == 1 && holdLength > 25) || (swipeState == 0 && mouse_check_butto
 		ds_list_add(selectionXs, swipeOriginX);
 		ds_list_add(selectionYs, swipeOriginY);
 		swipeState = 2;
+		audio_play_sound(snd_select,0,false);
 	}
 }
 
@@ -147,6 +151,7 @@ if(swipeState == 2){
 			if(changeSel){
 				ds_list_add(selectionXs, selX);
 				ds_list_add(selectionYs, selY);
+				audio_play_sound(snd_select,0,false);
 			}
 		}
 		//Update the selected word
@@ -156,12 +161,17 @@ if(swipeState == 2){
 		if(ds_list_size(selectionXs) > 2 && validWord(getSelectedWord())){
 			//valid word
 			points += ds_list_size(selectionXs)*ds_list_size(selectionXs);
+			audio_play_sound(snd_success, 0, false);
 			for(var i = 0; i < ds_list_size(selectionXs); i++){
 				board[selectionXs[| i]][selectionYs[| i]].die();
 				board[selectionXs[| i]][selectionYs[| i]] = pointer_null;
 			}
 			wordDisplayState = 1;
 			createRandomTile();
+			//Send high score to the server
+			ini_open("score.ini");
+			ini_write_real("d","s",points);
+			ini_close();
 		}else if(ds_list_size(selectionXs) <= 2){
 			//word too short
 			wordDisplayState = 2;
