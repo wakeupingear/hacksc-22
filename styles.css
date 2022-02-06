@@ -65,7 +65,12 @@ a:hover {
 .noselect {
     -webkit-touch-callout: none;
     /* iOS Safari */
+    -webkit-touch-callout: none;
+    /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;
+    /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;
+    /* prevent copy paste, to allow, change 'none' to 'text' */
     /* Safari */
     -khtml-user-select: none;
     /* Konqueror HTML */
@@ -154,7 +159,7 @@ a:hover {
     overflow: hidden;
 }
 
-#score{
+#score {
     color: var(--c_mid);
     font-size: min(3vw, 3vh);
     display: flex;
