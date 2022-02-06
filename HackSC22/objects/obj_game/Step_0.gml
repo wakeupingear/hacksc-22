@@ -179,3 +179,10 @@ if(swipeState == 2){
 }
 
 wordDisplayTimer++;
+
+if(lost){
+	lostFade = clamp(lostFade + 1/60, 0, 1);
+	if(lostFade > .75 && mouse_check_button_pressed(mb_left)){
+		room_restart();
+	}
+}

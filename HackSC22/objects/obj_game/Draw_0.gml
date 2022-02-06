@@ -33,7 +33,27 @@ for(var xx = 0; xx < gameSize; xx++){
 draw_set_color(c_white);
 
 
-//Draw selected word
+//Draw strikes
+for(var i = 0; i < 3; i++){
+	draw_sprite(spr_strike, strikes > i, room_width/2 + 96*(i-1), room_height-64-8);
+}
+
+//Lost screen
+if(lost){
+	draw_set_color(make_color_rgb(52,52,52));
+	draw_set_alpha(lostFade);
+	draw_rectangle(0, 0, room_width, room_height, false);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_center);
+	draw_set_color(c_ltgray);
+	draw_set_font(fnt_tile);
+	draw_text(room_width/2, room_height/2, "You lost!\nClick to\nRestart");
+	draw_set_color(c_white);
+	draw_set_alpha(1);
+}
+
+
+//Draw selected word or score
 var drawWord = false;
 var wordColor = c_white;
 var wordXOffset = 0;
@@ -74,8 +94,3 @@ if(drawWord){
 	draw_text(room_width/2, 64, pointsStr);
 }
 
-
-//Draw strikes
-for(var i = 0; i < 3; i++){
-	draw_sprite(spr_strike, strikes > i, room_width/2 + 96*(i-1), room_height-64);
-}

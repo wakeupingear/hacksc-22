@@ -28,7 +28,9 @@ selectionYs = ds_list_create();
 
 points = 0;
 strikes = 0;
+
 lost = false;
+lostFade = 0;
 
 wordDisplayState = 0;
 wordDisplayTimer = 0;
