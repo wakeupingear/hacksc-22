@@ -2,10 +2,15 @@
 <html>
 
 <head>
-    <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <script type="text/javascript">
+        document.write("<base href='" + document.location.href + "/' />");
+        if (document.location.href=="http://localhost:5500/"){
+            document.write("<script type='text/javascript' src='https://livejs.com/live.js'>\</script\>");
+        }
+    </script>
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" integrity="sha512-UNM1njAgOFUa74Z0bADwAq8gbTcqZC8Ej4xPSzpnh0l6KMevwvkBvbldF9uR++qKeJ+MOZHRjV1HZjoRvjDfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Our Funky HTML Page</title>
+    <title>Writus</title>
     <meta name="description" content="Our first page">
     <meta name="keywords" content="html tutorial template">
     <meta name="author" content="Levi Pinkert & Will Farhat">
@@ -19,9 +24,9 @@
 
 <body>
     <div id="page">
-        <h1 id="title">Wordus</h1>
+        <h1 id="title">Writus</h1>
         <div id="content">
-            <iframe src="./htmlFiles/index.html" id="game"></iframe>
+            <iframe src="htmlFiles/index.html" id="game"></iframe>
             <div id="scoreTab" class="shadow">
                 <div id="scoreToggle" class="hover"></div>
                 <div id="scoreContent" class="open">
