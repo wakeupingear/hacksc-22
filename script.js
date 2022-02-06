@@ -93,7 +93,7 @@ window.onstorage = () => {
     // When local storage changes, dump the list to
     // the console.
     let newScore = parseInt(window.localStorage.getItem('CreatedwithGameMakerStudio2.0.score.ini').replace(/\D/g, ""));
-    if (newScore !== highScore) {
+    if (newScore > highScore) {
         highScore = newScore;
         console.log("NEW SCORE: " + highScore);
         localStorage.setItem("highScore", highScore);
