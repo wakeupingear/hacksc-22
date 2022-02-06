@@ -57,7 +57,6 @@ if (highScore === null) highScore = 0;
 let token = localStorage.getItem("token");
 if (token === null) {
     token = uuidv4();
-    alert(token)
     localStorage.setItem("token", token);
 }
 
