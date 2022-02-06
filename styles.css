@@ -45,7 +45,8 @@ a {
     text-decoration: none;
     transition: 0.4s;
 }
-a:hover{
+
+a:hover {
     color: var(--c_tile);
 }
 
@@ -75,6 +76,16 @@ a:hover{
     user-select: none;
     /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
+    user-select: none;
+    /* supported by Chrome and Opera */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
 }
 
 #content {
@@ -161,25 +172,29 @@ a:hover{
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
+
 @keyframes fadeOut {
     0% {
         opacity: 1;
         visibility: visible;
     }
+
     99% {
         visibility: visible;
     }
+
     100% {
         opacity: 0;
         visibility: hidden;
     }
 }
 
-#title{
+#title {
     width: min(70vw, 80vh);
     padding-top: 2vh;
 }
