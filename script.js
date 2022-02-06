@@ -5,16 +5,6 @@ for (var i = 0; i < links.length; i++) {
     links[i].setAttribute("target", "_blank");
 }
 
-const scoreContent = document.getElementById("scoreContent");
-document.getElementById("scoreToggle").addEventListener("click", () => {
-    if (scoreContent.classList.contains("open")) {
-        scoreContent.classList.remove("open");
-    }
-    else {
-        scoreContent.classList.add("open");
-    }
-});
-
 function eventFire(el, etype) {
     if (el.fireEvent) {
         el.fireEvent('on' + etype);
@@ -24,6 +14,16 @@ function eventFire(el, etype) {
         el.dispatchEvent(evObj);
     }
 }
+
+/*const scoreContent = document.getElementById("scoreContent");
+document.getElementById("scoreToggle").addEventListener("click", () => {
+    if (scoreContent.classList.contains("open")) {
+        scoreContent.classList.remove("open");
+    }
+    else {
+        scoreContent.classList.add("open");
+    }
+});
 
 const buttonState = ["hover scoreCategory", "scoreCategory"];
 const scoreMenuMap = new Map();
@@ -45,6 +45,7 @@ for (var i = 0; i < scoreModes.children.length; i++) {
     scoreModes.children[i].addEventListener("click", switchScoreMenu);
 }
 eventFire(scoreModes.children[0], "click");
+*/
 
 const popup = document.getElementById("popup");
 document.getElementById("popupToggle").addEventListener("click", () => {

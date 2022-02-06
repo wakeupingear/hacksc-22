@@ -181,6 +181,7 @@ a:hover{
 
 #title{
     width: min(70vw, 80vh);
+    padding-top: 2vh;
 }
 
 .popupOpen {
