@@ -18,7 +18,7 @@ die = function(){
 	
 	//make the lines
 	for(var i = 0; i < 360; i+=45){
-		var l = instance_create_layer(x+obj_game.tileSize/2, y+obj_game.tileSize/2, "Instances", obj_actionLine);
+		var l = instance_create_layer(x+obj_game.tileSize/2, y+obj_game.tileSize/2, "Particles", obj_actionLine);
 		l.dir = i;
 		l.x += 20*dcos(i);
 		l.y -= 20*dsin(i);

@@ -48,7 +48,7 @@ if(lost){
 	draw_set_valign(fa_center);
 	draw_set_color(c_ltgray);
 	draw_set_font(fnt_tile);
-	draw_text(room_width/2, room_height/2, "You lost!\nClick to\nRestart");
+	draw_text(room_width/2, room_height/2, "You lost!\nClick to\nrestart");
 	draw_set_color(c_white);
 	draw_set_alpha(1);
 }

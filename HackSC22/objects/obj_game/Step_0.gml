@@ -161,6 +161,21 @@ if(swipeState == 2){
 		if(ds_list_size(selectionXs) > 2 && validWord(getSelectedWord())){
 			//valid word
 			points += ds_list_size(selectionXs)*ds_list_size(selectionXs);
+			if(ds_list_size(selectionXs) >= 4 && strikes > 0){
+				//Remove a strike
+				var strikeToRemove = strikes-1;
+				var cX = room_width/2 + 96*(strikeToRemove-1);
+				var cY = room_height-64-8;
+				for(var i = 0; i < 360; i+=45){
+					var l = instance_create_layer(cX, cY, "Particles", obj_actionLine);
+					l.dir = i;
+					l.x += 20*dcos(i);
+					l.y -= 20*dsin(i);
+					l.color = make_color_rgb(158, 11, 15);
+					l.size = 20;
+				}
+				strikes--;
+			}
 			audio_play_sound(snd_success, 0, false);
 			for(var i = 0; i < ds_list_size(selectionXs); i++){
 				board[selectionXs[| i]][selectionYs[| i]].die();
