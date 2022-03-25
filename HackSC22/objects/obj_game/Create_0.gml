@@ -64,7 +64,6 @@ boardHasSpace = function(){
 			}
 		}
 	}
-	return false;
 }
 
 //Function that tells whether there is a vowel on the board
@@ -97,6 +96,83 @@ createRandomTile = function(){
 			}
 		}
 	}
+}
+
+//Function that creates a random tile on the board
+createSpecificTile = function(n){
+	while(true){
+		var nX = irandom_range(0, gameSize-1);
+		var nY = irandom_range(0, gameSize-1);
+		if(board[nX][nY] == pointer_null){
+			board[nX][nY] = instance_create_layer(gameToScreenX(nX), gameToScreenY(nY), "Tiles", obj_tile);
+			board[nX][nY].letter = n;
+			board[nX][nY].moveTo(nX, nY);
+			break;
+		}
+	}
+}
+
+//Helper function to check whether an item is in an array
+arrayContains = function(arr, n){
+	var len = array_length(arr);
+	for(var i = 0; i < len; i++){
+		if(arr[i] == n){ return true; }
+	}
+	return false;
+}
+
+//Function that uses new rules to spawn a tile on the board
+vowels = ["a", "e", "i", "o", "u"];
+vowelFloor = 2;
+vowelCeil = 3;
+specials = ["j", "k", "q", "v", "w", "x", "z"];
+specialFloor = 1;
+specialCeil = 2;
+normals = ["b", "c", "d", "f", "g", "h", "l", "m", "n", "p", "r", "s", "t", "y"];
+
+createBalancedTile = function(){
+	//Count how much of each there already is
+	var cV = 0;
+	var cS = 0;
+	var cN = 0;
+	for(var yy = 0; yy < gameSize; yy++){
+		for(var xx = 0; xx <gameSize; xx++){
+			if(board[xx][yy] != pointer_null){
+				var l = board[xx][yy].letter;
+				if(arrayContains(vowels, l)){ cV++; }
+				else if(arrayContains(specials, l)){ cS++; }
+				else{ cN++; }
+			}
+		}
+	}
+	
+	//Is the board full?
+	if(cV + cS + cN == gameSize*gameSize){
+		return;
+	}
+	
+	//Do we require a vowel?
+	if(cV < vowelFloor){
+		createSpecificTile(vowels[irandom_range(0, array_length(vowels)-1)]);
+		return;
+	}
+	
+	//Do we require a special?
+	if(cS < specialFloor){
+		createSpecificTile(specials[irandom_range(0, array_length(specials)-1)]);
+		return;
+	}
+	
+	//Make a normal tile
+	candidates = [0];
+	array_copy(candidates, 0, normals, 0, array_length(normals));
+	if(cV < vowelCeil){
+		array_copy(candidates, array_length(candidates)-1, vowels, 0, array_length(vowels));
+	}
+	if(cS < specialCeil){
+		array_copy(candidates, array_length(candidates)-1, specials, 0, array_length(specials));
+	}
+	createSpecificTile(candidates[irandom_range(0, array_length(candidates)-1)]);
 }
 
 //Function that finds the word you have currently selected
@@ -198,5 +274,5 @@ gameOver = function(){
 
 //Initialize the board with 3 random tiles
 for(var i = 0; i < 3; i++){
-	createRandomTile();
+	createBalancedTile();
 }

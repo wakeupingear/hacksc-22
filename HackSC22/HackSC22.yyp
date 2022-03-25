@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"obj_tile","path":"objects/obj_tile/obj_tile.yy",},"order":0,},
     {"id":{"name":"snd_move","path":"sounds/snd_move/snd_move.yy",},"order":0,},
+    {"id":{"name":"spr_specialTile","path":"sprites/spr_specialTile/spr_specialTile.yy",},"order":6,},
     {"id":{"name":"snd_fail","path":"sounds/snd_fail/snd_fail.yy",},"order":3,},
     {"id":{"name":"fnt_bigText","path":"fonts/fnt_bigText/fnt_bigText.yy",},"order":1,},
     {"id":{"name":"gameToScreen","path":"scripts/gameToScreen/gameToScreen.yy",},"order":0,},

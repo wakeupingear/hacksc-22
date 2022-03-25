@@ -11,3 +11,8 @@ if(dying){
 }else{
 	scale = lerp(scale, 1, 0.2);
 }
+
+
+if(obj_game.arrayContains(obj_game.specials, letter)){
+	sprite = spr_specialTile;
+}

@@ -84,7 +84,7 @@ if(!lost){
 						}
 				
 						//Create a new tile
-						createRandomTile();
+						createBalancedTile();
 					
 						//Play the moving sound
 						audio_play_sound(snd_move, 0, false);
@@ -187,7 +187,7 @@ if(!lost){
 						board[selectionXs[| i]][selectionYs[| i]] = pointer_null;
 					}
 					wordDisplayState = 1;
-					createRandomTile();
+					createBalancedTile();
 					//Send high score to the server
 					ini_open("score.ini");
 					ini_write_real("d","s",points);

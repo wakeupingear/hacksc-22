@@ -24,3 +24,5 @@ die = function(){
 		l.y -= 20*dsin(i);
 	}
 }
+
+sprite = spr_altTile;
